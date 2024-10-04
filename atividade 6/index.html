@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maior Valor</title>
+    <style>
+        #valor {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <input id="valor" type="text" placeholder="Digite um valor positivo e termine com -1"> <br> <br>
+    <button id="botao" onclick="lerValores()">Enviar</button>
+    
+    <h1 id="resultado"></h1>
+
+    <script>
+        function lerValores() {
+            let valores = [];
+            let input = document.getElementById('valor').value.split(' '); 
+            let saida = document.getElementById('resultado');
+            
+            for (let valor of input) {
+                let numero = parseFloat(valor);
+                
+                if (numero === -1) {
+                    break;
+                }
+                
+                if (numero > 0) {
+                    valores.push(numero); 
+                }
+            }
+
+            let maior = Math.max(...valores)
+
+
+            
+            saida.innerText = "Valores armazenados: " + valores.join(", ") + " o mairo valore foi: "+ maior;
+        }
+    </script>
+
+</body>
+</html>
